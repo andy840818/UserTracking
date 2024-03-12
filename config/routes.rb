@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :admins, controllers: { sessions: 'admins/sessions' }
+  namespace :admins do
+    get 'dashboard', to: 'dashboard#index'
+  end
 
-  # Defines the root path route ("/")
+  devise_for :users
   root "bookings#index"
   resources :bookings
 end
