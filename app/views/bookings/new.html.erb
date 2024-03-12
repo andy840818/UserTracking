@@ -1,0 +1,18 @@
+<%= form_with(model: @booking, local: true, data: { turbo: false }) do |f| %>
+
+  <div>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :start_time %>
+
+    <%= f.label :content, '不加辣' %>
+    <%= f.radio_button :content, '不加辣' %>
+
+    <%= f.label :content, '加辣' %>
+    <%= f.radio_button :content, '加辣' %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>

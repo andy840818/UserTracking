@@ -1,3 +1,48 @@
 
-<h1>Dash Board</h1>
+<style>
+  body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+  .container { max-width: 600px; margin: auto; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+  ul { list-style-type: none; padding: 0; }
+  li { padding: 10px; border-bottom: 1px solid #eee; }
+  li:last-child { border-bottom: none; }
+  .highlight { background-color: #e9e9e9; }
+</style>
+
+
+<div class="container">
+  <h1 class="text-3xl">Dashboard</h1>
+  <h2 class="text-lg">每日活躍人數</h2>
+
+  <h2 class="text-lg">每周活躍人數</h2>
+
+  <h2 class="text-lg">每日booking人數</h2>
+  <ul>
+    <% @daily_bookings_count.each do |date, count| %>
+      <li class="<%= 'highlight' if count > 10 %>"><%= date %> : <%= count %> 人</li>
+    <% end %>
+  </ul>
+
+  <h2 class="text-lg">每周booking人數</h2>
+  <ul>
+    <% @weekly_bookings_count.each do |date_keys, count| %>
+      <% year, month, week = date_keys %>
+      <li><%= year.to_i %> 年 <%= month.to_i %> 月 第 <%= week.to_i %> 周 : <%= count %> 人</li>
+    <% end %>
+  </ul>
+
+  <h2 class="text-lg">日平均用戶預訂時長</h2>
+  <h2 class="text-lg">每日最大用戶預訂期限</h2>
+  <h2 class="text-lg">每日99%用戶預訂期</h2>
+  <%= link_to '使用者清單', admins_userslists_path, class:'text-blue-500 hover:text-blue-300'  %>
+  <%#<ul>
+  <%#  <% @bookings.each do |b| %>
+  <%#    <li>
+  <%#      User ID: <%= b.user_id %><br>
+  <%#      Start Time: <%= b.start_time&.strftime("%Y-%m-%d %H:%M:%S") %><br>
+  <%#      End Time: <%= b.end_time&.strftime("%Y-%m-%d %H:%M:%S") %>
+  <%#    </li>
+  <%#  <% end %>
+  <%#</ul> %>
+
+</div>
 
