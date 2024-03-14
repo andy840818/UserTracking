@@ -9,23 +9,28 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <% if current_user %>
-      <%= link_to('登出', destroy_user_session_path, data: { turbo_method: 'delete' }) %> |
-      <%= link_to('修改密碼', edit_registration_path(:user)) %>
-    <% else %>
-      <%= link_to('註冊', new_registration_path(:user)) %> |
-      <%= link_to('登入', new_session_path(:user)) %>
-    <% end %>
-    
-    <% if current_admin %>
-    <% else %>
-      <%= link_to('註冊', new_registration_path(:admin)) %> |
-      <%= link_to('登入後台', new_session_path(:admin)) %>
-    <% end %>
+    <nav class="flex justify-between p-5 ">
+      <div>
+        <% if current_user %>
+          <%= link_to('登出', destroy_user_session_path, data: { turbo_method: 'delete' }) %> |
+          <%= link_to('修改密碼', edit_registration_path(:user)) %>
+        <% else %>
+          <%= link_to('註冊', new_registration_path(:user)) %> |
+          <%= link_to('登入', new_session_path(:user)) %>
+        <% end %>
+      </div>
+      <div>
+        <% if current_admin %>
+        <% else %>
+          <%= link_to('後台註冊', new_registration_path(:admin)) %> |
+          <%= link_to('後台登入', new_session_path(:admin)) %>
+        <% end %>        
+      </div>
+    </nav>
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main class="container mx-auto flex">
       <%= yield %>
     </main>
   </body>

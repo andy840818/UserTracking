@@ -9,15 +9,16 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    
-    <% if current_admin %>
-      <%= link_to('登出', destroy_admin_session_path, data: { turbo_method: 'delete' }) %>
-      <%= link_to 'Dash Board', admins_dashboard_path %>
-    <% end %>
+    <nav class="flex justify-between p-5 ">
+      <% if current_admin %>
+        <%= link_to 'Dash Board', admins_dashboard_path %>
+        <%= link_to('登出', destroy_admin_session_path, data: { turbo_method: 'delete' }) %>
+      <% end %>
+    </nav>
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main class="container mx-auto mt-8 px-5">
       <%= yield %>
     </main>
   </body>
