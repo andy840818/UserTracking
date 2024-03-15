@@ -17,7 +17,7 @@
         <li class="m-3">
           內容: <%= booking.content %>
           <br>
-          預訂日期: <%= booking.end_time&.strftime('%Y-%m/%d') %>
+          預訂日期: <%= booking.end_time&.strftime('%F-%R') %>
           <br>
           預訂花費時長: <%= booking.booking_period %>
         </li>

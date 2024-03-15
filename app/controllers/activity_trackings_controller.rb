@@ -1,0 +1,2 @@
+class ActivityTrackingsController < ApplicationController
+end
