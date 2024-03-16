@@ -6,17 +6,13 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    unless session[:booking_id]
-      @booking = Booking.create(start_time: Time.now)
-      session[:booking] = @booking
-    end
+    ActivityTracking.create(user: current_user, action_type: 'Booking', action_params: 'first visit booking page', timestamp: Time.now)
   end
 
   def create
     @booking = Booking.new(booking_params)
-    p @booking
-    @booking.end_time = Time.now
     if @booking.save
+      ActivityTracking.create(user: current_user, action_type: 'Booking', action_params: 'submit new booking', timestamp: Time.now)
       redirect_to root_path, notice:'訂購成功'
     end
   end

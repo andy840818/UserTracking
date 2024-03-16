@@ -24,8 +24,5 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # end
 
   # The path used after confirmation.
-  def after_confirmation_path_for(resource_name, resource)
-    sign_in(resource)
-    admins_dashboard_path
-  end
+
 end
