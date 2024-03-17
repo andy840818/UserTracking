@@ -1,12 +1,13 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @bookings = Booking.all 
+    @bookings = Booking.all
+    ActivityTracking.create(user: current_user, action_type: 'Visit', action_params: 'visit home page', timestamp: Time.now)
   end
 
   def new
     @booking = Booking.new
-    ActivityTracking.create(user: current_user, action_type: 'Booking', action_params: 'first visit booking page', timestamp: Time.now)
+    current_user&.record_first_activity!('Visit', 'first visit booking page')
   end
 
   def create

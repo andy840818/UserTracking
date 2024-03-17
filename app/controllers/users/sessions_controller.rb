@@ -12,7 +12,10 @@ class Users::SessionsController < Devise::SessionsController
   # def create
   #   super
   # end
-
+  def after_sign_out_path_for(resource)
+    ActivityTracking.create(user: current_user, action_type: 'sign out', timestamp: Time.now)
+    root_path
+  end
   # DELETE /resource/sign_out
   # def destroy
   #   super

@@ -9,4 +9,10 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
+  def record_first_activity!(type, params)
+    unless ActivityTracking.exists?(user: self, action_type: type, action_params: params)
+      ActivityTracking.create(user: self, action_type: type, action_params: params, timestamp: Time.current)
+    end
+  end
+
 end
