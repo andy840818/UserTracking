@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  year_month: 2024-03-20
+  week_of_month: 1
+  active_users: 1
+  booking_number: 1
+
+two:
+  year_month: 2024-03-20
+  week_of_month: 1
+  active_users: 1
+  booking_number: 1

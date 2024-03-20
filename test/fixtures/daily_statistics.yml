@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2024-03-20
+  active_users: 1
+  booking_number: 1
+  average_booking_period: 1.5
+  99th_percentile_booking_period: 1.5
+  maximum_booking_period: 1.5
+
+two:
+  date: 2024-03-20
+  active_users: 1
+  booking_number: 1
+  average_booking_period: 1.5
+  99th_percentile_booking_period: 1.5
+  maximum_booking_period: 1.5

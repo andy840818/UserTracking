@@ -1,0 +1,2 @@
+class WeeklyStatistic < ApplicationRecord
+end
