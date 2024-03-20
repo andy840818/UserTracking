@@ -3,7 +3,6 @@
 
   <div>
     <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.hidden_field :start_time %>
 
     <%= f.label :content, '不加辣' %>
     <%= f.radio_button :content, '不加辣' %>
@@ -13,7 +12,7 @@
   </div>
 
   <div>
-    <%= f.submit %>
+    <%= f.submit 'Booking', class:'text-blue-500 hover:text-blue-300 cursor-pointer' %>
   </div>
 
 <% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "pages#home"
   devise_for :admins, controllers: { 
     sessions: 'admins/sessions'
   }
@@ -12,6 +13,12 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-  root "bookings#index"
-  resources :bookings
+ 
+  resources :bookings, except:[:derstroy] do
+    member do
+      patch 'cancel'
+      get 'detail'
+    end
+  end
+  get '/home', to: 'pages#home'
 end
