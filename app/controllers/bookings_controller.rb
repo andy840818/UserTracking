@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_booking, only: [:show, :edit, :update, :cancel]
+  before_action :set_booking, only: [:show, :edit, :update, :cancel, :restore]
 
   def index
     @bookings = Booking.all
@@ -20,15 +20,24 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     if @booking.save
       track_activity('Submit', 'submit new booking')
-      redirect_to root_path, notice:'訂購成功'
+      redirect_to bookings_path, notice:'訂購成功'
     end
   end
 
-  def edit
+  def cancel
+    if @booking.update(status: :canceled)
+      track_activity('Cancel', 'cancel booking')
+      redirect_to bookings_path, notice: '預訂已取消'
+    end
   end
 
-  def update
+  def restore
+    if @booking.update(status: :pending)
+      track_activity('Restore', 'restore canceled booking')
+      redirect_to bookings_path, notice: '已恢復預訂'
+    end
   end
+
 
   private
 

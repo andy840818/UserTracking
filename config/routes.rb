@@ -16,8 +16,8 @@ Rails.application.routes.draw do
  
   resources :bookings, except:[:derstroy] do
     member do
-      patch 'cancel'
-      get 'detail'
+      patch :cancel
+      patch :restore
     end
   end
   get '/home', to: 'pages#home'

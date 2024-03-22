@@ -1,3 +1,23 @@
 <h1 class="h1">Booking Page</h1>
 
 <%= link_to 'Item1', new_booking_path, class:'text-blue-400 m-20 text-3xl' %>
+
+<% if current_user.bookings.any? %>
+  <h2 class="font-bold m-5">已預訂的項目</h2>
+  <ul>
+    <% current_user.bookings.each do |booking| %>
+    <li class="m-5">
+      <p class='mx-5 text-2xl'>
+        <%= booking.content %>
+      </p>
+      <%= booking.status %>
+      <%= booking.created_at.strftime('%F') %>
+      <% if booking.canceled? %>
+        <%= link_to 'Restore', restore_booking_path(booking), data: {turbo_method: 'patch'}, class: 'text-blue-400 mx-5' %>
+      <% else %>
+        <%= link_to 'Cancel', cancel_booking_path(booking), data: {turbo_method: 'patch' , turbo_confirm: '確定要取消此預定嗎?'}, class: 'text-blue-400 mx-5' %>
+      <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
