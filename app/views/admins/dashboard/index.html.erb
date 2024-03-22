@@ -16,19 +16,8 @@
   <h2 class="text-lg">每周活躍人數</h2>
 
   <h2 class="text-lg">每日booking人數</h2>
-  <ul>
-    <% @daily_bookings_count.each do |date, count| %>
-      <li class="<%= 'highlight' if count > 10 %>"><%= date %> : <%= count %> 人</li>
-    <% end %>
-  </ul>
 
   <h2 class="text-lg">每周booking人數</h2>
-  <ul>
-    <% @weekly_bookings_count.each do |date_keys, count| %>
-      <% year, month, week = date_keys %>
-      <li><%= year.to_i %> 年 <%= month.to_i %> 月 第 <%= week.to_i %> 周 : <%= count %> 人</li>
-    <% end %>
-  </ul>
 
   <h2 class="text-lg">日平均用戶預訂時長</h2>
   <h2 class="text-lg">每日最大用戶預訂期限</h2>
