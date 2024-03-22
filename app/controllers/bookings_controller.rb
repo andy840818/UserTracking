@@ -19,21 +19,21 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
-      track_activity('Submit', 'submit new booking')
+      track_activity('Submit', 'submit new booking', @booking )
       redirect_to bookings_path, notice:'訂購成功'
     end
   end
 
   def cancel
     if @booking.update(status: :canceled)
-      track_activity('Cancel', 'cancel booking')
+      track_activity('Cancel', 'cancel booking', @booking)
       redirect_to bookings_path, notice: '預訂已取消'
     end
   end
 
   def restore
     if @booking.update(status: :pending)
-      track_activity('Restore', 'restore canceled booking')
+      track_activity('Restore', 'restore canceled booking', @booking)
       redirect_to bookings_path, notice: '已恢復預訂'
     end
   end

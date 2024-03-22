@@ -10,10 +10,15 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <nav class="flex justify-between p-5 ">
-      <% if current_admin %>
-        <%= link_to 'Dash Board', admins_dashboard_path %>
-        <%= link_to('登出', destroy_admin_session_path, data: { turbo_method: 'delete' }) %>
-      <% end %>
+      <div>
+        <% if current_admin %>
+          <%= link_to 'Dash Board', admins_dashboard_path %>
+          <%= link_to('登出', destroy_admin_session_path, class:'mx-3', data: { turbo_method: 'delete' }) %>
+        <% end %>
+      </div>
+      <div>
+        <%= link_to 'home', root_path, class:'mx-3' %>
+      </div>
     </nav>
   </head>
 

@@ -1,5 +1,6 @@
 class ActivityTracking < ApplicationRecord
   belongs_to :user
+  belongs_to :booking, optional: true
   validate :valid_action_type
 
   VALID_ACTION_TYPES = [
