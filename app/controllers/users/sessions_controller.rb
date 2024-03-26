@@ -11,14 +11,14 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super do |user|
-      user.update!(last_active_at: Time.current)
+      user.update(last_active_at: Time.current)
       track_activity('log in',)
     end
   end
 
   # DELETE /resource/sign_out
   def destroy
-    current_user.update!(last_active_at: Time.current)
+    current_user.update(last_active_at: Time.current)
     track_activity('sign out',)
     super
   end

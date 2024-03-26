@@ -14,9 +14,14 @@ class ActivityTracking < ApplicationRecord
     'Restore'
    ].freeze
 
-   private
+  private
 
-   def valid_action_type
-     errors.add(:action_type, 'is not valid') unless VALID_ACTION_TYPES.include?(action_type)
-   end
+  def valid_action_type
+    errors.add(:action_type, 'is not valid') unless VALID_ACTION_TYPES.include?(action_type)
+  end
+  
+  def self.user_activity_exists?(user_id, action, action_params)
+    where(user_id: user_id, action_type: action, action_params: action_params).exists?
+  end
+
 end
