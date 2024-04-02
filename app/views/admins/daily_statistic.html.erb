@@ -1,0 +1,20 @@
+<h1 class="h1">Daily Statistics</h1>
+<div class="grid grid-cols-6 gap-3 border-2">
+  <div class="border-solid border-r-2 text-center">日期</div>
+  <div class="border-solid border-r-2 text-center">日活躍用戶數</div>
+  <div class="border-solid border-r-2 text-center">每日預訂數量</div>
+  <div class="border-solid border-r-2 text-center">日平均用戶預訂時長</div>
+  <div class="border-solid border-r-2 text-center">每日99%用戶預訂期</div>
+  <div class="text-center">每日最大用戶預訂期限</div>
+</div>
+
+<% @daily_statistics.each do |statistic| %>
+  <div class="grid grid-cols-6 gap-3 border-2">
+    <div class="border-solid border-r-2 text-center"><%= statistic.date %></div>
+    <div class="border-solid border-r-2 text-center"><%= statistic.active_users %></div>
+    <div class="border-solid border-r-2 text-center"><%= statistic.booking_number %></div>
+    <div class="border-solid border-r-2 text-center"><%= statistic.average_booking_period %></div>
+    <div class="border-solid border-r-2 text-center"><%= statistic.percentile_99th_booking_period %></div>
+    <div class="text-center"><%= statistic.maximum_booking_period %></div>
+  </div>
+<% end %>

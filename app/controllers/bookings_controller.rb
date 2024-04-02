@@ -13,10 +13,6 @@ class BookingsController < ApplicationController
     end
   end
 
-  def show
-    track_activity('Visit', 'visit booking item')
-  end
-
   def new
     @booking = Booking.new
     track_activity('Visit', 'visit booking detail')
