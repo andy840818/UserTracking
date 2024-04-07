@@ -1,0 +1,16 @@
+<h1 class="h1">Weekly Statistics</h1>
+<div class="grid grid-cols-4 gap-3 border-2">
+  <div class="border-solid border-r-2 text-center">年</div>
+  <div class="border-solid border-r-2 text-center">日期</div>
+  <div class="border-solid border-r-2 text-center">周活躍用戶</div>
+  <div class="border-solid border-r-2 text-center">周預定數量</div>
+</div>
+
+<% @weekly_statistics.each do |statistic| %>
+  <div class="grid grid-cols-4 gap-3 border-2">
+    <div class="border-solid border-r-2 text-center"><%= statistic.start_date.strftime("%Y") %></div>
+    <div class="border-solid border-r-2 text-center"><%= statistic.start_date.strftime("%m/%d") %> - <%= statistic.end_date.strftime("%m/%d") %></div>
+    <div class="border-solid border-r-2 text-center"><%= statistic.active_users %></div>
+    <div class="border-solid border-r-2 text-center"><%= statistic.booking_number %></div>
+  </div>
+<% end %>

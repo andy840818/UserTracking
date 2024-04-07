@@ -17,5 +17,7 @@ every 1.day, at: '12:00 am' do
   runner "DailyStatisticJob.perform_later"
 end
 
-
+every :monday, at: '12:00 am' do
+  runner "WeeklyStatisticJob.perform_later"
+end
 # Learn more: http://github.com/javan/whenever

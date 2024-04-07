@@ -13,11 +13,11 @@
   <h2 class="font-semibold my-5">最新預定活動</h2>
   <ul>
     <% @latest_bookings.each do |booking| %>
-      <% if booking.end_time.present? %>
+      <% if booking.created_at.present? %>
         <li class="m-3">
           內容: <%= booking.content %>
           <br>
-          預訂日期: <%= booking.end_time&.strftime('%F-%R') %>
+          預訂日期: <%= booking.created_at.strftime('%F [%R]') %>
           <br>
           預訂花費時長: <%= booking.booking_period %>
         </li>
