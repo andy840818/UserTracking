@@ -1,0 +1,8 @@
+<p>Dear Admin，</p>
+
+<p>Here is the summary for <%= (Date.yesterday - 6.day).strftime("%B %d, %Y") %> - <%= Date.yesterday.strftime("%B %d, %Y") %> :</p>
+
+<ul>
+  <li>Weekly active users number: <%= @metrics[:active_users] %> </li>
+  <li>Weekly booking number: <%= @metrics[:booking_number] %></li>
+</ul>

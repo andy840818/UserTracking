@@ -1,0 +1,11 @@
+<p>Dear Admin，</p>
+
+<p>Here is the summary for <%= Date.yesterday.strftime("%B %d, %Y") %>:</p>
+
+<ul>
+  <li>Daily active users number: <%= @metrics[:active_users] %> </li>
+  <li>Daily booking number: <%= @metrics[:booking_number] %></li>
+  <li>Daily Average user booking period: <%= @metrics[:average_booking_period] %> </li>
+  <li>Daily 99th percentile user booking period: <%= @metrics[:percentile_99th_booking_period] %> </li>
+  <li>Daily maximum user booking period: <%= @metrics[:maximum_booking_period] %> </li>
+</ul>

@@ -22,11 +22,13 @@ end
 
 group :development do
   gem "web-console"
+  gem "letter_opener", "~> 1.10"
 end
 
 group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
 
 
