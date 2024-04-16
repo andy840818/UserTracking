@@ -23,21 +23,22 @@ Develop a RESTful API to receive user activity tracking data.
 - cancel booking.
 
 **Dashboard: the dashboard will shows**
-Daily
+1. Daily
 * Daily active users number
 * Daily booking number
 * Daily Average user booking period (user booking period = the time between user entering new booking page and submit a new booking)
 * Daily 99th percentile user booking period
 * Daily maximum user booking period
-Weekly
+2. Weekly
 * Weekly active users number
 * Weekly booking number
-
+3. UserList
+* User detail
+* User booking
 ## Tech Stack
-![TailwindCSS](https://img.shields.io/badge/-TailwindCSS-06B6D4?logo=tailwindcss&logoColor=white&style=for-the-badge)
-![Ruby](https://img.shields.io/badge/-Ruby-CC342D?logo=ruby&logoColor=white&style=for-the-badge)
-![Rails](https://img.shields.io/badge/-Rails-D30001?logo=rubyonrails&logoColor=white&style=for-the-badge)
-![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-4169E1?logo=postgresql&logoColor=white&style=for-the-badge)
+front-end : TailwindCSS
+back-end : Ruby-3.2.2 , Rails-7.0.8
+database : PostgreSQL
 
 ## Libraries
 - Devise: Used for authentication. It handles user registration, logging in and out, and password recovery.
@@ -65,6 +66,31 @@ To ensure timely data processing and report generation, the platform leverages t
 - Automated email dispatches that send out the daily and weekly summaries to administrators.
   **Daily Summary** Reports are dispatched every day at 8:00 AM, offering insights into the previous day's activities.
   **Weekly Summary** Reports are sent every Monday at 8:00 AM, providing a weekly overview to administrators.
-
+## Setup
+### 1.Installation
+Clone the repository:
+```
+git clone https://github.com/your-username/your-project-name.git
+cd your-project-name
+```
+### 2.Install the required gems:
+```
+bundle install
+```
+### 3.Setup the database:
+```
+rails db:create
+rails db:migrate
+```
+### 4.Seed the database with initial data:
+To populate the database with sample data, run the following command. This step is crucial for setting up initial users, activity trackings, bookings, and other necessary records for the application to function properly.
+```
+rails db:seed
+```
+### Running the Application
+After completing the setup, you can start the Rails server:
+```
+rails s
+```
 ### Security & Authentication
 With Devise handling user authentication, the platform ensures secure access controls and data protection. It manages user sessions, registrations, and password recoveries, maintaining a secure environment for both users and administrators.

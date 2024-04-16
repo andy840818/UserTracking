@@ -24,9 +24,8 @@
       <div>
         <% if current_admin %>
         <% else %>
-          <%= link_to('後台註冊', new_registration_path(:admin)) %> |
           <%= link_to('後台登入', new_session_path(:admin)) %>
-        <% end %>        
+        <% end %>
       </div>
     </nav>
   </head>
